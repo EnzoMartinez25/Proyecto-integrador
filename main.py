@@ -1,19 +1,25 @@
+from colorama import Fore, Style, init
+import os
+
+init(autoreset=True)
+
 from cargar import cargar_paises
 from buscar import buscar_pais
 from filtrar import filtrar_por_continente, filtrar_por_poblacion, filtrar_por_superficie
 from ordenar import ordenar_paises
 from estadisticas import pais_mayor_poblacion, pais_menor_poblacion, promedio_poblacion, promedio_superficie, cantidad_por_continente
 
+
 # --- SUBMENU FILTRAR ---
 
 def menu_filtrar(paises):
 
     while True:
-        print("--- FILTRAR PAISES ---")
-        print("1 - Por continente")
-        print("2 - Por poblacion")
-        print("3 - Por superficie")
-        print("4 - Volver al menu principal")
+        print(Fore.CYAN + Style.BRIGHT + "--- 🌍 FILTRAR PAISES 🌍---")
+        print(Fore.GREEN + "1 - Por continente")
+        print(Fore.GREEN + "2 - Por poblacion")
+        print(Fore.GREEN + "3 - Por superficie")
+        print(Fore.GREEN + "4 - Volver al menu principal")
 
         opcion = input("Elige una opcion: ").strip()
 
@@ -24,7 +30,7 @@ def menu_filtrar(paises):
                 for pais in resultados:
                     print(pais)
             else:
-                print("No se encontraron resultados.")
+                print(Fore.YELLOW + "No se encontraron resultados.")
 
         elif opcion == "2":
             min_pob = input("Poblacion minima: ")
@@ -34,7 +40,7 @@ def menu_filtrar(paises):
                 for pais in resultados:
                     print(pais)
             else:
-                print("No se encontraron resultados.")
+                print(Fore.YELLOW + "No se encontraron resultados.")
 
         elif opcion == "3":
             min_sup = input("Superficie minima: ")
@@ -44,27 +50,27 @@ def menu_filtrar(paises):
                 for pais in resultados:
                     print(pais)
             else:
-                print("No se encontraron resultados.")
+                print(Fore.YELLOW + "No se encontraron resultados.")
 
         elif opcion == "4":
             break  # aca vuelvee al menu principal
 
         else:
-            print("OPCION INVALIDA. INTENTE DE NUEVO")
+            print(Fore.RED + "OPCION INVALIDA. INTENTE DE NUEVO ❌")
 
 
 
-# --- SUBMENÚ ESTADÍSTICAS ---
+# --- SUBMENU ESTADISTICAS ---
 
 def menu_estadisticas(paises):
     while True:
-        print("--- ESTADISTICAS ---")
-        print("1 - Pais con mayor poblacion")
-        print("2 - Pais con menor poblacion")
-        print("3 - Promedio de poblacion")
-        print("4 - Promedio de superficie")
-        print("5 - Cantidad de países por continente")
-        print("6 - Volver al menu principal")
+        print(Fore.CYAN + Style.BRIGHT + "--- 📊 ESTADISTICAS 📊---")
+        print(Fore.GREEN + "1 - Pais con mayor poblacion")
+        print(Fore.GREEN + "2 - Pais con menor poblacion")
+        print(Fore.GREEN + "3 - Promedio de poblacion")
+        print(Fore.GREEN + "4 - Promedio de superficie")
+        print(Fore.GREEN + "5 - Cantidad de países por continente")
+        print(Fore.GREEN + "6 - Volver al menu principal")
 
         opcion = input("Elige una opcion: ").strip()
 
@@ -91,7 +97,7 @@ def menu_estadisticas(paises):
             break  # se vuelve al menu principal
 
         else:
-            print("OPCION INVALIDA. INTENTE DE NUEVO")
+            print(Fore.RED + "OPCION INVALIDA. INTENTE DE NUEVO ❌")
 
 
 
@@ -100,12 +106,12 @@ def menu_estadisticas(paises):
 def menu_principal(paises):
 
     while True:
-        print("--- MENU PRINCIPAL ---")
-        print("1 - Buscar pais por nombre")
-        print("2 - Filtrar paises")
-        print("3 - Ordenar paises")
-        print("4 - Estadisticas")
-        print("5 - Salir")
+        print(Fore.CYAN + Style.BRIGHT + "--- 🌍 MENU PRINCIPAL DE PAISES 🌍---")
+        print(Fore.GREEN + "1️⃣  Buscar pais 🔍")
+        print(Fore.GREEN + "2️⃣  Filtrar paises 🔦")
+        print(Fore.GREEN + "3️⃣  Ordenar paises 🗂️")
+        print(Fore.GREEN + "4️⃣  Ver estadisticas 📊")
+        print(Fore.GREEN + "5️⃣  Salir 🚪")
 
         opcion = input("Elige una opcion: ").strip()
 
@@ -116,7 +122,7 @@ def menu_principal(paises):
                 for pais in resultados:
                     print(pais)
             else:
-                print("No se encontraron resultados.")
+                print(Fore.YELLOW + "No se encontraron resultados.")
 
         elif opcion == "2":
             menu_filtrar(paises)  # aca llamamos al submenu
@@ -132,14 +138,14 @@ def menu_principal(paises):
             break
 
         else:
-            print("OPCION INVALIDA. INTENTE DE NUEVO")
+            print(Fore.RED + "OPCION INVALIDA. INTENTE DE NUEVO ❌")
 
 # --- FUNCION DEL MAIN PRINCNIPAL ---
 
 def main():
     paises = cargar_paises("paises.csv")
     if not paises:
-        print("No se pudieron cargar los datos.")
+        print(Fore.YELLOW + "No se pudieron cargar los datos.")
         return
     print("Datos cargados correctamente.")
     menu_principal(paises)
