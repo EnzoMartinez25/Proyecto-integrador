@@ -62,14 +62,14 @@ Nos da el resultado deseado
 
 Ejemplo de entrada
 Elige una opcion: 2 (elegimos la opcion 2 de --- FILTRAR PAISES ---)
------------------------------------------------------------------------
+
 Ejemplo de salida
 Nos muestra el submenu de ---FILTRAR PAISES---
 Ejemplo de entrada
 Elige una opcion: 1 (elegimos la opcion 1 - Por continente)
 Ejemplo de salida
 Nos muestra una lista de todos los paises del continente ingresado
------------------------------------------------------------------------
+
 Ejemplo de entrada
 Elige una opcion: 3 (elegimos la opcion 3 --- ORDENAR PAISES ---)
 Ejemplo de salida 
@@ -80,7 +80,7 @@ Elege una opcion: 4 (elegimos la opcion 4 - Ascendente)
 
 Ejemplo de salida
 Nos muestra la lista de paises en orden Ascendente
------------------------------------------------------------------------
+
 Ejemplo de entrada
 Elige una opcion: 4 (Ingresamos la opcion 4 - ESTADISTICAS)
 Ejemplo de salida:
