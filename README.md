@@ -38,10 +38,15 @@ Preparar el archivo CSV:
 Debe llamarse paises.csv y tener el siguiente formato:
 
 nombre,poblacion,superficie,continente
+
 Argentina,45376763,2780400,América
+
 Japon,125800000,377975,Asia
+
 Brasil,213993437,8515767,America
+
 Alemania,83149300,357022,Europa
+
 (Un ejemplo con pocos paises)
 
 2 -- EJECUTAMOS EL PROGRAMA PRINCIPAL -- 
@@ -52,42 +57,66 @@ Abrimo la terminal y buscamos el archivo: main.py (programa principal)
 
 Seleccionamos una opcion ingresando el numero correspondiente (algunas opciones con sub menus)
 
-Ejemplo de entrada 
+-Ejemplo de entrada- 
+
 Elige la opcion 1: (elegimos la opcion 1 de --- BUSCAR PAISES ---)
+
 Ingresa el nombre el pais: Argentina
 
-Ejemplo de salida
+-Ejemplo de salida-
+
 {'nombre': 'Argentina', 'poblacion': 45376763, 'superficie': 2780400, 'continente': 'América'}
+
 Nos da el resultado deseado 
 
-Ejemplo de entrada
+-Ejemplo de entrada-
+
 Elige una opcion: 2 (elegimos la opcion 2 de --- FILTRAR PAISES ---)
 
-Ejemplo de salida
+-Ejemplo de salida-
+
 Nos muestra el submenu de ---FILTRAR PAISES---
-Ejemplo de entrada
+
+-Ejemplo de entrada-
+
 Elige una opcion: 1 (elegimos la opcion 1 - Por continente)
-Ejemplo de salida
+
+-Ejemplo de salida-
+
 Nos muestra una lista de todos los paises del continente ingresado
 
-Ejemplo de entrada
+-Ejemplo de entrada-
+
 Elige una opcion: 3 (elegimos la opcion 3 --- ORDENAR PAISES ---)
-Ejemplo de salida 
+
+-Ejemplo de salida- 
+
 Nos muestra un submenu de ---ORDENAR PAISES ---
-Ejemplo de entrada
+
+-Ejemplo de entrada-
+
 Elige una opcion: 1 (elegimos la opcion 1 - Por nombre)
+
 Elege una opcion: 4 (elegimos la opcion 4 - Ascendente)
 
-Ejemplo de salida
+-Ejemplo de salida-
+
 Nos muestra la lista de paises en orden Ascendente
 
-Ejemplo de entrada
+-Ejemplo de entrada-
+
 Elige una opcion: 4 (Ingresamos la opcion 4 - ESTADISTICAS)
-Ejemplo de salida:
+
+-Ejemplo de salida-
+
 Nos muestra un sub menu de ---ESTADISTICAS---
-Ejemplo de entrada
+
+-Ejemplo de entrada-
+
 Elige una opcion: 1 (Ingresamos la opcion 1 - Pais con mayor poblacion)
-Ejemplo de salida 
+
+-Ejemplo de salida- 
+
 Nos muestra el pais con mayor poblacion
 
 4 -- SALIR DEL PROGRAMA PRINCIPAL --
