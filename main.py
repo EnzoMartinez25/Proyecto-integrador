@@ -1,7 +1,9 @@
 from colorama import Fore, Style, init
+from rich.console import Console
 import os
 
 init(autoreset=True)
+console = Console()
 
 from cargar import cargar_paises
 from buscar import buscar_pais
@@ -9,12 +11,14 @@ from filtrar import filtrar_por_continente, filtrar_por_poblacion, filtrar_por_s
 from ordenar import ordenar_paises
 from estadisticas import pais_mayor_poblacion, pais_menor_poblacion, promedio_poblacion, promedio_superficie, cantidad_por_continente
 
+# --- FUNCION PARA LIMPIAR CONSOLA ---
+def limpiar_consola():
+    console.clear()
 
 # --- SUBMENU FILTRAR ---
-
 def menu_filtrar(paises):
-
     while True:
+        limpiar_consola()
         print(Fore.CYAN + Style.BRIGHT + "--- 🌍 FILTRAR PAISES 🌍---")
         print(Fore.GREEN + "1 - Por continente")
         print(Fore.GREEN + "2 - Por poblacion")
@@ -53,23 +57,22 @@ def menu_filtrar(paises):
                 print(Fore.YELLOW + "No se encontraron resultados.")
 
         elif opcion == "4":
-            break  # aca vuelvee al menu principal
+            break
 
         else:
             print(Fore.RED + "OPCION INVALIDA. INTENTE DE NUEVO ❌")
-
-
+        input("\nPresiona Enter para continuar...")
 
 # --- SUBMENU ESTADISTICAS ---
-
 def menu_estadisticas(paises):
     while True:
+        limpiar_consola()
         print(Fore.CYAN + Style.BRIGHT + "--- 📊 ESTADISTICAS 📊---")
         print(Fore.GREEN + "1 - Pais con mayor poblacion")
         print(Fore.GREEN + "2 - Pais con menor poblacion")
         print(Fore.GREEN + "3 - Promedio de poblacion")
         print(Fore.GREEN + "4 - Promedio de superficie")
-        print(Fore.GREEN + "5 - Cantidad de países por continente")
+        print(Fore.GREEN + "5 - Cantidad de paises por continente")
         print(Fore.GREEN + "6 - Volver al menu principal")
 
         opcion = input("Elige una opcion: ").strip()
@@ -77,7 +80,7 @@ def menu_estadisticas(paises):
         if opcion == "1":
             mayor = pais_mayor_poblacion(paises)
             if mayor:
-                print("Paias con mayor poblacion:", mayor["nombre"], "-", mayor["poblacion"])
+                print("Pais con mayor poblacion:", mayor["nombre"], "-", mayor["poblacion"])
 
         elif opcion == "2":
             menor = pais_menor_poblacion(paises)
@@ -91,21 +94,19 @@ def menu_estadisticas(paises):
             print("Promedio de superficie:", round(promedio_superficie(paises)))
 
         elif opcion == "5":
-            print("Cantidad de países por continente:", cantidad_por_continente(paises))
+            print("Cantidad de paises por continente:", cantidad_por_continente(paises))
 
         elif opcion == "6":
-            break  # se vuelve al menu principal
+            break
 
         else:
             print(Fore.RED + "OPCION INVALIDA. INTENTE DE NUEVO ❌")
-
-
+        input("\nPresiona Enter para continuar...")
 
 # -- MENU PRINCIPAL ---
-
 def menu_principal(paises):
-
     while True:
+        limpiar_consola()
         print(Fore.CYAN + Style.BRIGHT + "--- 🌍 MENU PRINCIPAL DE PAISES 🌍---")
         print(Fore.GREEN + "1️⃣  Buscar pais 🔍")
         print(Fore.GREEN + "2️⃣  Filtrar paises 🔦")
@@ -125,13 +126,13 @@ def menu_principal(paises):
                 print(Fore.YELLOW + "No se encontraron resultados.")
 
         elif opcion == "2":
-            menu_filtrar(paises)  # aca llamamos al submenu
+            menu_filtrar(paises)
 
         elif opcion == "3":
             ordenar_paises(paises)
 
         elif opcion == "4":
-            menu_estadisticas(paises)  # aca llamamos al sub menu
+            menu_estadisticas(paises)
 
         elif opcion == "5":
             print("Saliendo")
@@ -139,15 +140,16 @@ def menu_principal(paises):
 
         else:
             print(Fore.RED + "OPCION INVALIDA. INTENTE DE NUEVO ❌")
+        input("\nPresiona Enter para continuar...")
 
-# --- FUNCION DEL MAIN PRINCNIPAL ---
-
+# --- FUNCION DEL MAIN PRINCIPAL ---
 def main():
     paises = cargar_paises("paises.csv")
     if not paises:
         print(Fore.YELLOW + "No se pudieron cargar los datos.")
         return
     print("Datos cargados correctamente.")
+    input("\nPresiona Enter para continuar...")
     menu_principal(paises)
 
 if __name__ == "__main__":

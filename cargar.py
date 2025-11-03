@@ -1,11 +1,13 @@
 import csv
 
+# --- Funcion para cargar paises desde CSV ---
 def cargar_paises(nombre_archivo):
     paises = []
     try:
         with open(nombre_archivo, newline='', encoding='utf-8') as csvfile:
             lector = csv.DictReader(csvfile)
             for fila in lector:
+                # Convertimos poblacion y superficie a enteros
                 try:
                     pais = {
                         "nombre": fila["nombre"],

@@ -5,7 +5,7 @@ def filtrar_por_continente(paises, continente):
     """
     resultados = []
     try:
-        # Limpiamos espacios y pasamos a minúsculas
+        # Limpiamos espacios y pasamos a minusculas
         continente = continente.strip().lower()
 
         if not continente:
@@ -39,7 +39,7 @@ def filtrar_por_poblacion(paises, min_poblacion, max_poblacion):
         if min_poblacion > max_poblacion:
             raise ValueError("El valor minimo no puede ser mayor que el maximo.")
 
-        # Recorremos la lista de países
+        # Recorremos la lista de paises
         for pais in paises:
             if pais["poblacion"] >= min_poblacion and pais["poblacion"] <= max_poblacion:
                 resultados.append(pais)
@@ -67,7 +67,7 @@ def filtrar_por_superficie(paises, min_superficie, max_superficie):
         if min_superficie > max_superficie:
             raise ValueError("El valor minimo no puede ser mayor que el maximo.")
 
-        # Recorremos la lista de países
+        # Recorremos la lista de paises
         for pais in paises:
             sup = pais["superficie"]
             if sup >= min_superficie and sup <= max_superficie:

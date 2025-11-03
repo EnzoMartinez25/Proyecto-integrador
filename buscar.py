@@ -1,6 +1,6 @@
 def buscar_pais(paises, nombre_buscar):
     """
-    Busca paIses que contengan 'nombre_buscar' en su nombre (coincidencia parcial o exacta)
+    Busca paises que contengan 'nombre_buscar' en su nombre (coincidencia parcial o exacta)
     Devuelve una lista de diccionarios con los resultados
     paises proviene del csv prueba que creamos nosotros(paises.csv)
     """

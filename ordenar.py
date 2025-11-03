@@ -1,8 +1,11 @@
 from colorama import Fore, Style, init
+from rich.console import Console
 import os
 
 init(autoreset=True)
+console = Console()
 
+# --- FUNCIONES DE ORDENAMIENTO ---
 def obtener_nombre(pais):
     return pais["nombre"]
 
@@ -12,10 +15,16 @@ def obtener_poblacion(pais):
 def obtener_superficie(pais):
     return pais["superficie"]
 
+# --- FUNCION PARA LIMPIAR CONSOLA ---
+def limpiar_consola():
+    console.clear()
+
+# --- MENU ORDENAR PAISES ---
 def ordenar_paises(paises):
+    limpiar_consola()  # Limpiamos la pantalla al entrar al menu
     print(Fore.CYAN + Style.BRIGHT + "--- 🗂️ ORDENAR PAISES 🗂️ ---")
     
-    # aca hacemos una validacion de la opcion de criterio
+    # aca hacemos la validacion del criterio de orden
     try:
         print(Fore.GREEN + "1 - Por nombre")
         print(Fore.GREEN + "2 - Por poblacion")
@@ -23,9 +32,10 @@ def ordenar_paises(paises):
         opcion = int(input("Elige una opcion: "))
     except ValueError:
         print(Fore.YELLOW + "Debe ingresar un numero valido")
+        input("\nPresiona Enter para continuar...")
         return []
 
-    # aca hacemos una validacion de orden ascendente/descendente
+    # aca hacemos la validacion del orden ascendente/descendente
     try:
         print(Fore.GREEN + "4 - Ascendente")
         print(Fore.GREEN + "5 - Descendente")
@@ -42,7 +52,6 @@ def ordenar_paises(paises):
         reversa = False
 
     # Ordena segun la opcion
-
     if opcion == 1:
         paises_ordenados = sorted(paises, key=obtener_nombre, reverse=reversa)
     elif opcion == 2:
@@ -51,11 +60,13 @@ def ordenar_paises(paises):
         paises_ordenados = sorted(paises, key=obtener_superficie, reverse=reversa)
     else:
         print(Fore.RED + "OPCION INVALIDA ❌")
+        input("\nPresiona Enter para continuar...")
         return []
 
     # Mostrar resultados
-    print("Paises ordenados:")
+    print(Fore.CYAN + Style.BRIGHT + "\nPaises ordenados:")
     for pais in paises_ordenados:
         print(f"{pais['nombre']} - Poblacion: {pais['poblacion']:,} - Superficie: {pais['superficie']:,}")
 
+    input("\nPresiona Enter para continuar...")  # Espera para que el usuario vea los resultados
     return paises_ordenados
