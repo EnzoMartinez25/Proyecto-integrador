@@ -23,7 +23,7 @@ def actualizar_csv_desde_api():
 
         for pais in data:
             try:
-                nombre = pais.get("pais", "Desconocido")           # 🔹 CAMBIO
+                nombre = pais.get("pais", "Desconocido")        
                 poblacion = int(pais.get("poblacion", 0))
                 superficie = int(pais.get("superficie", 0))
                 continente = pais.get("continente", "Desconocido")
