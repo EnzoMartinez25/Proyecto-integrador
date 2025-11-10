@@ -64,3 +64,25 @@ def ordenar_paises(paises):
     input("\nPresiona Enter para continuar...")
 
     return paises_ordenados
+
+# --- TEST MANUAL DE ORDENAMIENTO ---
+if __name__ == "__main__":
+    paises_test = [
+        {"nombre": "Argentina", "poblacion": 45851378, "superficie": 2736690, "continente": "America"},
+        {"nombre": "Brasil", "poblacion": 213993437, "superficie": 8515767, "continente": "America"},
+        {"nombre": "Alemania", "poblacion": 83240525, "superficie": 357022, "continente": "Europa"},
+        {"nombre": "España", "poblacion": 47351567, "superficie": 505990, "continente": "Europa"},
+        {"nombre": "Egipto", "poblacion": 110990103, "superficie": 1002450, "continente": "Africa"},
+    ]
+
+    console.print("Test ordenar por nombre ascendente:")
+    paises_ordenados = sorted(paises_test, key=obtener_nombre)
+    mostrar_resultados(paises_ordenados)
+
+    console.print("\nTest ordenar por poblacion descendente:")
+    paises_ordenados = sorted(paises_test, key=obtener_poblacion, reverse=True)
+    mostrar_resultados(paises_ordenados)
+
+    console.print("\nTest ordenar por superficie ascendente:")
+    paises_ordenados = sorted(paises_test, key=obtener_superficie)
+    mostrar_resultados(paises_ordenados)

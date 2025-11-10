@@ -1,4 +1,4 @@
-# Funcion auxiliar para obtener poblacion de un pais
+# Funcion para obtener poblacion de un pais
 
 def obtener_poblacion(pais):
     return pais["poblacion"]

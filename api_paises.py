@@ -49,7 +49,7 @@ def actualizar_csv_desde_api():
         print(f"Error al conectar con la API: {e}")
 
 
-# --- 🧪 TEST MANUAL ---
+# --- TEST MANUAL ---
 if __name__ == "__main__":
     print("Iniciando prueba de la funcion actualizar_csv_desde_api()...\n")
     actualizar_csv_desde_api()
