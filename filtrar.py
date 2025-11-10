@@ -55,3 +55,28 @@ def filtrar_por_superficie(paises, min_superficie, max_superficie):
         print("ERROR, Ocurrio un error inesperado:", e)
 
     return resultados
+
+# --- TEST MANUAL DE FILTRAR ---
+if __name__ == "__main__":
+    paises_test = [
+        {"nombre": "Argentina", "poblacion": 45851378, "superficie": 2736690, "continente": "America"},
+        {"nombre": "Brasil", "poblacion": 213993437, "superficie": 8515767, "continente": "America"},
+        {"nombre": "Alemania", "poblacion": 83240525, "superficie": 357022, "continente": "Europa"},
+        {"nombre": "España", "poblacion": 47351567, "superficie": 505990, "continente": "Europa"},
+        {"nombre": "Egipto", "poblacion": 110990103, "superficie": 1002450, "continente": "Africa"},
+    ]
+
+    print("Test de filtrar_por_continente:")
+    resultados = filtrar_por_continente(paises_test, "europ")
+    for p in resultados:
+        print(f"{p['nombre']} - {p['continente']}")
+
+    print("\nTest de filtrar_por_poblacion (50M a 120M):")
+    resultados = filtrar_por_poblacion(paises_test, 50000000, 120000000)
+    for p in resultados:
+        print(f"{p['nombre']} - {p['poblacion']:,}")
+
+    print("\nTest de filtrar_por_superficie (500000 a 3000000):")
+    resultados = filtrar_por_superficie(paises_test, 500000, 3000000)
+    for p in resultados:
+        print(f"{p['nombre']} - {p['superficie']:,}")

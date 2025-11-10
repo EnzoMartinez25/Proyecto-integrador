@@ -1,4 +1,3 @@
-# api_paises.py
 import requests
 import csv
 import os
@@ -48,3 +47,14 @@ def actualizar_csv_desde_api():
 
     except requests.RequestException as e:
         print(f"Error al conectar con la API: {e}")
+
+
+# --- 🧪 TEST MANUAL ---
+if __name__ == "__main__":
+    print("Iniciando prueba de la funcion actualizar_csv_desde_api()...\n")
+    actualizar_csv_desde_api()
+
+    if os.path.exists("paises.csv"):
+        print("\n✅ Test exitoso: El archivo 'paises.csv' se creó correctamente.")
+    else:
+        print("\n❌ Test fallido: No se encontró el archivo 'paises.csv'.")
